@@ -1,0 +1,20 @@
+# Multi-Admin Netlify CMS Configuration
+backend:
+  name: git-gateway       # Enables multi-admin via Netlify Identity
+  branch: main            # Branch where projects will be saved
+
+media_folder: "images"     # Local folder to store uploaded images
+public_folder: "images"    # URL path used to display images
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "projects"     # Where each project is stored as markdown
+    create: true
+    slug: "{{title | slug}}"  # File name format based on title
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Year", name: "year", widget: "string" }
+      - { label: "Status", name: "status", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
